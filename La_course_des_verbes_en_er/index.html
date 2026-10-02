@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>La course des verbes en -er</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app">
+    <section id="coverScreen" class="screen active full-image-screen">
+      <div class="image-page-card">
+        <img src="assets/couverture.png" alt="Couverture de La course des verbes en -er" class="full-art" />
+
+        <div class="screen-actions cover-actions">
+          <button id="howToPlayButton" class="secondary-btn">Comment jouer</button>
+          <button id="goToChoiceButton" class="primary-btn">Jouer</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="howToPlayScreen" class="screen full-image-screen">
+      <div class="image-page-card">
+        <img src="assets/comment_jouer.png" alt="Instructions pour jouer" class="full-art" />
+
+        <div class="screen-actions">
+          <button id="backToCoverButton" class="secondary-btn">Retour</button>
+          <button id="continueToChoiceButton" class="primary-btn">Continuer</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="startScreen" class="screen">
+      <div class="start-card compact-start">
+        <div class="car-choice simple-choice">
+          <h2>Choisis ta voiture</h2>
+
+          <div class="choice-grid">
+            <label class="choice-card selected" id="chooseBlueCard">
+              <input type="radio" name="studentCar" value="blue" checked />
+              <img src="assets/7.png" alt="Voiture bleue" />
+              <span>Bleue</span>
+            </label>
+
+            <label class="choice-card" id="chooseRedCard">
+              <input type="radio" name="studentCar" value="red" />
+              <img src="assets/8.png" alt="Voiture rouge" />
+              <span>Rouge</span>
+            </label>
+          </div>
+        </div>
+
+        <button id="startButton" class="primary-btn">Jouer</button>
+      </div>
+    </section>
+
+    <section id="gameScreen" class="screen">
+      <header class="topbar">
+        <div>
+          <h1>La course des verbes en -er</h1>
+          <p>Affirmatif - Négatif - Interrogatif</p>
+        </div>
+
+        <div class="stats">
+          <span class="player-pill student active" id="studentStatus">
+            Élève : <strong id="studentHouse">0</strong>/30 | <strong id="studentScore">0</strong> pts
+          </span>
+
+          <span class="player-pill teacher" id="teacherStatus">
+            Professeur : <strong id="teacherHouse">0</strong>/30 | <strong id="teacherScore">0</strong> pts
+          </span>
+        </div>
+      </header>
+
+      <div class="board-wrap">
+        <img src="assets/boardNoCars.png" alt="Plateau de jeu" class="board" />
+
+        <img id="blueCar" class="player-car" src="assets/7.png" alt="Voiture bleue" />
+        <img id="redCar" class="player-car" src="assets/8.png" alt="Voiture rouge" />
+
+        <section id="winModal" class="board-modal hidden" aria-hidden="true">
+          <div class="end-card">
+            <img id="endImage" src="assets/Victoire.png" alt="Résultat de la partie" class="end-art" />
+
+            <div class="end-panel">
+              <h2 id="winnerTitle">Victoire !</h2>
+              <p id="winnerText">L’élève a atteint la case 30.</p>
+              <button id="playAgainButton" class="primary-btn">Rejouer</button>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <section class="controls">
+        <div class="dice-box">
+          <img id="diceImage" src="assets/1.png" alt="Dé" />
+          <span id="diceText">Dé : -</span>
+        </div>
+
+        <button id="rollButton" class="primary-btn">Lance le dé</button>
+        <button id="resetButton" class="secondary-btn">Recommencer</button>
+
+        <p id="message" class="message">C’est au tour de l’élève. Clique sur « Lance le dé ».</p>
+      </section>
+    </section>
+
+    <section id="questionModal" class="modal hidden" aria-hidden="true">
+      <div class="challenge-board">
+        <div class="challenge-content">
+          <div class="challenge-header">
+            <span id="questionType" class="badge">Défi</span>
+            <span id="turnLabel" class="turn-label">Élève</span>
+            <span id="timer" class="timer hidden">5</span>
+          </div>
+
+          <h2 id="questionTitle">Question</h2>
+
+          <p id="questionText"></p>
+
+          <p id="penaltyText" class="penalty-text"></p>
+
+          <div id="options" class="options"></div>
+
+          <p id="feedback" class="feedback"></p>
+        </div>
+
+        <button id="continueButton" class="primary-btn continue-outside hidden">
+          Continuer
+        </button>
+      </div>
+    </section>
+  </main>
+
+  <script src="questions.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
